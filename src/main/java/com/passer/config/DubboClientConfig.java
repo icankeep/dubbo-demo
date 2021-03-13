@@ -1,8 +1,7 @@
 package com.passer.config;
 
-import com.passer.service.UserService;
-import jdk.nashorn.internal.ir.annotations.Reference;
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
@@ -12,8 +11,7 @@ import org.springframework.context.annotation.PropertySource;
  */
 @Configuration
 @EnableDubbo(scanBasePackages = "com.passer")
-@PropertySource("dubbo-consumer.properties")
+@ComponentScan(value = {"com.passer.controller"})
+@PropertySource("classpath:dubbo.properties")
 public class DubboClientConfig {
-    @Reference
-    private UserService userService;
 }

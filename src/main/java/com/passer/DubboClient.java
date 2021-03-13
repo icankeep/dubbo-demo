@@ -11,7 +11,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class DubboClient {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DubboClientConfig.class);
-        UserService userService = context.getBean("userService", UserService.class);
+        context.start();
+        UserService userService = context.getBean(UserService.class);
         System.out.println(userService.getUser());
     }
 }
